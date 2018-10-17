@@ -1,0 +1,47 @@
+{
+	"name": "tty-width-frame",
+	"version": "0.1.0",
+	"description": "Generate simple framed text fitting for the current text terminal",
+	"repository": "shinnn/tty-width-frame",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"license": "ISC",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "nyc node test.js"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"frame",
+		"box",
+		"border",
+		"beautify",
+		"surround",
+		"enclose",
+		"text",
+		"string",
+		"wrap",
+		"terminal",
+		"tty",
+		"cli-friendly"
+	],
+	"dependencies": {
+		"inspect-with-kind": "^1.0.5",
+		"string-width": "^2.1.1",
+		"wrap-ansi": "^4.0.0"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config": "^6.7.3",
+		"eslint": "^5.7.0",
+		"nyc": "^13.1.0",
+		"nyc-config-common": "^1.0.1",
+		"tape": "^4.9.1"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn"
+	},
+	"nyc": {
+		"extends": "nyc-config-common"
+	}
+}

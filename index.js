@@ -1,0 +1,34 @@
+'use strict';
+
+const inspectWithKind = require('inspect-with-kind');
+const stringWidth = require('string-width');
+const wrapAnsi = require('wrap-ansi');
+
+const wrapAnsiOption = {hard: true};
+
+module.exports = process.stdout && process.stdout.isTTY ? function ttyWidthFrame(str) {
+	if (typeof str !== 'string') {
+		throw new TypeError(`Expected a string to be framed with box-drawing characters, but got ${
+			inspectWithKind(str)
+		}.`);
+	}
+
+	// '  ┌'.length + '┐  '.length === 6
+	const contentWidth = process.stdout.columns - 6;
+
+	const padding = `  │${' '.repeat(contentWidth)}│`;
+	const verticalBar = '─'.repeat(contentWidth);
+
+	return `  ┌${verticalBar}┐
+${padding}
+${wrapAnsi(str, contentWidth - 2, wrapAnsiOption).split(/\r?\n/u).map(line => `  │ ${line}${
+		' '.repeat(Math.max(contentWidth - 2 - stringWidth(line), 0))
+	} │`).join('\n')}
+${padding}
+  └${verticalBar}┘`;
+} : function unsupported() {
+	const error = new Error('tty-width-frame only supports TTY environments, but the program is running under a non-TTY environment.');
+	error.code = 'ERR_NO_TTY';
+
+	throw error;
+};
