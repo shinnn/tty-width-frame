@@ -6,7 +6,17 @@ const wrapAnsi = require('wrap-ansi');
 
 const wrapAnsiOption = {hard: true};
 
-module.exports = process.stdout && process.stdout.isTTY ? function ttyWidthFrame(str) {
+module.exports = process.stdout && process.stdout.isTTY ? function ttyWidthFrame(...args) {
+	const argLen = args.length;
+
+	if (argLen !== 1) {
+		throw new RangeError(`Expected 1 argument (<string>), but got ${
+			argLen === 0 ? 'no' : argLen
+		} arguments.`);
+	}
+
+	const [str] = args;
+
 	if (typeof str !== 'string') {
 		throw new TypeError(`Expected a string to be framed with box-drawing characters, but got ${
 			inspectWithKind(str)

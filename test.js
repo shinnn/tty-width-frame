@@ -73,21 +73,17 @@ test('ttyWidthFrame()', async t => {
 
 	await unlink(tmp);
 
-	/*
 	t.throws(
 		() => ttyWidthFrame(),
-		/^RangeError.*Expected 1 argument \(string\), but got no arguments instead\./u,
+		/^RangeError.*Expected 1 argument \(<string>\), but got no arguments\./u,
 		'should throw an error when it takes no arguments.'
 	);
-	*/
 
-	/*
 	t.throws(
 		() => ttyWidthFrame('a', 'b'),
-		/^RangeError.*Expected 1 argument \(string\), but got 2 arguments instead\./u,
+		/^RangeError.*Expected 1 argument \(<string>\), but got 2 arguments\./u,
 		'should throw an error when it takes too many arguments.'
 	);
-	*/
 
 	t.end();
 });
