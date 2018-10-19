@@ -1,6 +1,6 @@
 {
 	"name": "tty-width-frame",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Generate simple framed text fitting for the current text terminal",
 	"repository": "shinnn/tty-width-frame",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
@@ -32,7 +32,7 @@
 		"wrap-ansi": "^4.0.0"
 	},
 	"devDependencies": {
-		"@shinnn/eslint-config": "^6.7.3",
+		"@shinnn/eslint-config": "^6.7.4",
 		"eslint": "^5.7.0",
 		"nyc": "^13.1.0",
 		"nyc-config-common": "^1.0.1",
