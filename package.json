@@ -28,15 +28,15 @@
 	],
 	"dependencies": {
 		"inspect-with-kind": "^1.0.5",
-		"string-width": "^2.1.1",
+		"string-width": "^3.0.0",
 		"wrap-ansi": "^4.0.0"
 	},
 	"devDependencies": {
-		"@shinnn/eslint-config": "^6.7.4",
-		"eslint": "^5.7.0",
+		"@shinnn/eslint-config": "^6.8.9",
+		"eslint": "^5.12.1",
 		"nyc": "^13.1.0",
 		"nyc-config-common": "^1.0.1",
-		"tape": "^4.9.1"
+		"tape": "^4.9.2"
 	},
 	"eslintConfig": {
 		"extends": "@shinnn"
