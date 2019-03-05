@@ -5,10 +5,12 @@ const {join} = require('path');
 const {promisify} = require('util');
 const {unlink, writeFile} = require('fs').promises;
 
-Object.defineProperty(process, 'stdout', {
-	value: {
-		isTTY: true,
-		columns: 10
+Object.defineProperties(process.stdout, {
+	isTTY: {
+		value: true
+	},
+	columns: {
+		value: 10
 	}
 });
 
