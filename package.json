@@ -1,6 +1,6 @@
 {
 	"name": "tty-width-frame",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Generate simple framed text fitting for the current text terminal",
 	"repository": "shinnn/tty-width-frame",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
