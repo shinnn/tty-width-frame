@@ -23,8 +23,14 @@ module.exports = process.stdout && process.stdout.isTTY ? function ttyWidthFrame
 		}.`);
 	}
 
+	const {columns} = process.stdout;
+
+	if (columns < 15) {
+		return str;
+	}
+
 	// '  ┌'.length + '┐  '.length === 6
-	const contentWidth = process.stdout.columns - 6;
+	const contentWidth = columns - 6;
 
 	const padding = `  │${' '.repeat(contentWidth)}│`;
 	const verticalBar = '─'.repeat(contentWidth);

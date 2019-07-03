@@ -10,7 +10,7 @@ Object.defineProperties(process.stdout, {
 		value: true
 	},
 	columns: {
-		value: 10
+		value: 15
 	}
 });
 
@@ -74,6 +74,14 @@ test('ttyWidthFrame()', async t => {
 	);
 
 	await unlink(tmp);
+
+	Object.defineProperty(process.stdout, 'columns', {value: 14});
+
+	t.equal(
+		ttyWidthFrame('a'.repeat(100)),
+		'a'.repeat(100),
+		'should starts with an upper frame.'
+	);
 
 	t.throws(
 		() => ttyWidthFrame(),

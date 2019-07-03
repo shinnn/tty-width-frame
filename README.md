@@ -32,7 +32,7 @@ Generate simple framed text from a string`));
 
 ## Installation
 
-[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install tty-width-frame
@@ -76,24 +76,15 @@ ttyWidthFrame('abcdefghijklmnopqrstuvwxyz');
 */
 ```
 
-On a [non-interactive](http://www.tldp.org/LDP/abs/html/intandnonint.html) script, it thrown an `Error` instead.
+When the terminal window is too narrow, or more specifically, its width is less than 15, it just returns the original `string`.
 
 ```javascript
-// cp.js
-const ttyWidthFrame = require('tty-width-frame');
+// When the terminal width is 14
 
-ttyWidthFrame('This script throws an error.');
+ttyWidthFrame('abcdefghijklmnopqrstuvwxyz'); //=> 'abcdefghijklmnopqrstuvwxyz'
 ```
 
-```javascript
-const {execFile} = require('child_process');
-const {promisify} = require('util');
-
-(async () => {
-  const {stderr} = await promisify(execFile)('node', ['cp.js']);
-  // Error: tty-width-frame only supports TTY environments, but the program is running under a non-TTY environment.
-})();
-```
+On a [non-interactive](https://www.tldp.org/LDP/abs/html/intandnonint.html) script, it throws an `Error` instead.
 
 ## Related project
 
@@ -101,4 +92,4 @@ const {promisify} = require('util');
 
 ## License
 
-[ISC License](./LICENSE) © 2018 - 2019 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2018 - 2019 Watanabe Shinnosuke

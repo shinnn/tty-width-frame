@@ -3,7 +3,7 @@
 	"version": "1.0.2",
 	"description": "Generate simple framed text fitting for the current text terminal",
 	"repository": "shinnn/tty-width-frame",
-	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"author": "Watanabe Shinnosuke (https://github.com/shinnn)",
 	"license": "ISC",
 	"scripts": {
 		"pretest": "eslint .",
